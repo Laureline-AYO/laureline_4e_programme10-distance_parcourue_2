@@ -18,13 +18,12 @@ input.onButtonPressed(Button.B, function () {
         pas += 0.1
     }
 })
-input.onGesture(Gesture.Shake, function () {
-    Distance += pas
-})
-input.onGesture(Gesture.LogoDown, function () {
-    Distance += pas
-})
 let pas = 0
 let Distance = 0
 Distance = 0
 pas = 0.25
+basic.forever(function () {
+    if (input.isGesture(Gesture.Shake) || input.isGesture(Gesture.LogoDown)) {
+        Distance += pas
+    }
+})
